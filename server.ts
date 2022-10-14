@@ -4,7 +4,14 @@ import socketIo from 'socket.io'
 
 const app = express()
 const server = createServer(app)
-const io = new socketIo.Server(server, { transports: ['websocket'] })
+export const io = new socketIo.Server(server, { transports: ['websocket'] })
+
+app.get('/', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Origin, X-Csrftoken, Content-Type, Accept')
+  res.send('Hello World!')
+})
 
 io.on('connection', socket => {
   socket.on('submit', msg => {

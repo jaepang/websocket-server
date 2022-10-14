@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile server.ts",
-    "prod": "ts-node server.ts",
-    "ts-node": "ts-node --compiler-options \"{\\\"module\\\":\\\"commonjs\\\"}\""
+    "prod": "ts-node server.ts"
   },
   "author": "",
   "license": "ISC",
